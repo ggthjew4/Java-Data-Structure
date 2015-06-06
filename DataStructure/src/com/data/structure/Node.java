@@ -55,7 +55,7 @@ public class Node {
 		return n;
 	}
 
-	public void deleteDuplicateNode(Node node) {
+	public Node deleteDuplicateNode(Node node) {
 		final Map<Integer, Boolean> map = new HashMap<Integer, Boolean>();
 		Node previous = null;
 		while (node.next != null) {
@@ -67,5 +67,6 @@ public class Node {
 			}
 			node = node.next;
 		}
+		return previous;
 	}
 }
