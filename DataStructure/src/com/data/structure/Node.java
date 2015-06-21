@@ -55,6 +55,11 @@ public class Node {
 		return n;
 	}
 
+	/**
+	 * remove Duplicate node
+	 * @param node
+	 * @return head node
+	 */
 	public Node deleteDuplicateNode(Node node) {
 		final Map<Integer, Boolean> map = new HashMap<Integer, Boolean>();
 		Node previous = null;
@@ -68,5 +73,30 @@ public class Node {
 			node = node.next;
 		}
 		return previous;
+	}
+
+	/**
+	 * select specific node by index
+	 * @param headNode
+	 * @param k index
+	 * @return i index
+	 */
+	public static int selectedSpecificNode(Node headNode, int k) {
+		if (null == headNode) {
+			return 0;
+		}
+		int i = selectedSpecificNode(headNode.next, k) + 1;
+		if (i == k) {
+			System.out.print(headNode.data);
+		}
+		return i;
+	}
+	
+	public final static void main(final String[] arg){
+		Node headNode = new Node(1);
+		headNode.appendToTail(2);
+		headNode.appendToTail(3);
+		headNode.appendToTail(4);
+		Node.selectedSpecificNode(headNode, 2);
 	}
 }
